@@ -2,3 +2,27 @@
     font-family: Arial, Helvetica, sans-serif;
     background-color: bisque;
 }
+
+.button {
+    color: white;
+    background-color: cadetblue;
+    border-radius: 15px;
+    border-style: none;
+    height: 20px;
+    width: 70px;
+
+
+}
+
+.button2 {
+    color: white;
+    background-color: rgb(108, 3, 104);
+    border-radius: 15px;
+    border-style: none;
+    height: 20px;
+    width: 150px;
+}
+
+.hidden {
+    display: none;
+}
