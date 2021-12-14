@@ -1,28 +1,29 @@
 * {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: bisque;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f0d2d1;
+}
+.select {
+  background-color: #f6efa6;
 }
 
 .button {
-    color: white;
-    background-color: cadetblue;
-    border-radius: 15px;
-    border-style: none;
-    height: 20px;
-    width: 70px;
-
-
+  color: white;
+  background-color: #66b3ba;
+  border-radius: 15px;
+  border-style: none;
+  height: 20px;
+  width: 70px;
 }
 
 .button2 {
-    color: white;
-    background-color: rgb(108, 3, 104);
-    border-radius: 15px;
-    border-style: none;
-    height: 20px;
-    width: 150px;
+  color: white;
+  background-color: #42cafd;
+  border-radius: 15px;
+  border-style: none;
+  height: 20px;
+  width: 150px;
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
