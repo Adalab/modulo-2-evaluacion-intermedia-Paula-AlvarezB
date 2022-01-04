@@ -7,6 +7,8 @@ const button = document.querySelector(".js-button");
 const button2 = document.querySelector(".js-button2");
 const playerCounter = document.querySelector(".js-counterPlayer");
 const computerCounter = document.querySelector(".js-counterComputer");
+const image = document.querySelector(".image-js");
+const computerChoice = document.querySelector(".js-computer");
 let attempts = 0;
 let indexPlayer = 0;
 let indexComputer = 0;
@@ -19,7 +21,7 @@ function getRandomNumber(max) {
 }
 //Function transform random number to computer's tools
 
-function computerValue() {
+function getComputerValue() {
   const randomNum = getRandomNumber(10);
   let computerTool;
   if (randomNum < 3) {
@@ -31,17 +33,24 @@ function computerValue() {
   }
   return computerTool;
 }
-
+function addPointToUser() {
+  indexPlayer++;
+}
+function addPointToComputer() {
+  indexComputer++;
+}
 //DECLARE BUTTON FUNCTION
 function handleClickUpdate(event) {
   event.preventDefault();
-  const computerTool = computerValue();
-  const userTool = userInput.value;
-  console.log(
-    `el usuario elige ${userTool} y el ordenador elige ${computerTool}`
-  );
-
+  image.classList.toggle("rotate");
   attempts++;
+  paintHTML();
+}
+function paintHTML() {
+  const computerTool = getComputerValue();
+  const userTool = userInput.value;
+  computerChoice.innerHTML = `El ordenador ha elegido ${computerTool}`;
+
   console.log(`attempts${attempts}`);
 
   if (userTool === computerTool) {
@@ -52,11 +61,11 @@ function handleClickUpdate(event) {
     (userTool === "papel" && computerTool === "tijera")
   ) {
     state.innerHTML = "¡Has ganado!";
-    indexPlayer++;
+    addPointToUser();
     playerCounter.innerHTML = `Jugador:${[indexPlayer]}`;
   } else {
     state.innerHTML = "Has perdido";
-    indexComputer++;
+    addPointToComputer();
     computerCounter.innerHTML = `Computadora: ${[indexComputer]}`;
   }
   if (attempts === 10) {
@@ -64,8 +73,10 @@ function handleClickUpdate(event) {
     button2.classList.remove("hidden");
   }
 }
+
 //Function click button 2
-function handleClick2Update() {
+function handleClick2Update(ev) {
+  ev.preventDefault;
   attempts = 0;
   indexPlayer = 0;
   playerCounter.innerHTML = `Jugador: 0`;
@@ -74,6 +85,6 @@ function handleClick2Update() {
   button2.classList.add("hidden");
 }
 
-//EVENT LISTENER BUTTON
+//EVENT LISTENER BUTTONS
 button.addEventListener("click", handleClickUpdate);
 button2.addEventListener("click", handleClick2Update);
